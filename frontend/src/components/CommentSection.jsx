@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-
-// A URL do seu backend Express
 const API_URL = "http://localhost:5000/api/comments";
 
 const CommentSection = () => {
@@ -10,7 +8,6 @@ const CommentSection = () => {
   const [newCommentAuthor, setNewCommentAuthor] = useState("Anônimo");
   const [loading, setLoading] = useState(true);
 
-  // Função GET: Busca os dados
   const fetchComments = async () => {
     try {
       setLoading(true);
@@ -23,12 +20,10 @@ const CommentSection = () => {
     }
   };
 
-  // Chama a função GET uma vez ao carregar o componente
   useEffect(() => {
     fetchComments();
   }, []);
 
-  // Função POST: Envia os dados
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -41,10 +36,8 @@ const CommentSection = () => {
         author: newCommentAuthor.trim() || "Anônimo",
       });
 
-      // Adiciona o novo comentário ao topo da lista localmente
       setComments([response.data, ...comments]);
 
-      // Limpa o formulário
       setNewCommentContent("");
     } catch (error) {
       console.error("Erro ao enviar comentário:", error);
@@ -58,7 +51,6 @@ const CommentSection = () => {
 
   return (
     <main className="container">
-      {/* FORMULÁRIO */}
       <form onSubmit={handleSubmit} className="form-comment">
         <input
           type="text"
@@ -78,7 +70,6 @@ const CommentSection = () => {
         </button>
       </form>
 
-      {/* LISTA DE COMENTÁRIOS */}
       <h2 className="h2-title">Comentários ({comments.length})</h2>
 
       {comments.map((comment) => (
@@ -96,3 +87,4 @@ const CommentSection = () => {
 };
 
 export default CommentSection;
+
