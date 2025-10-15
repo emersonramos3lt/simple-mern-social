@@ -33,12 +33,10 @@ Follow these steps to get the application running on your local machine.
 ### 2. Backend Setup
 
 1.  Navigate to the `/backend` folder.
-    ```bash
-    cd backend
-    ```
+   
 2.  Install server dependencies.
     ```bash
-    npm install
+    npm i
     ```
 3.  Create a file named **`.env`** in the `/backend` folder and add your MongoDB connection string (replace with your actual credentials):
     ```env
@@ -53,13 +51,12 @@ Follow these steps to get the application running on your local machine.
 ### 3. Frontend Setup
 
 1.  Open a **second terminal** and navigate to the `/frontend` folder.
-    ```bash
-    cd frontend
-    ```
+   
 2.  Install client dependencies.
     ```bash
-    npm install
+    npm i
     ```
+    
 3.  Start the React application.
     ```bash
     npm run dev
